@@ -60,3 +60,71 @@ Por defecto, Next.js utiliza componentes SSR. El proceso de renderizado el sigui
 1. El RSC Payload actualizará el DOM para que las versiones servidor y cliente coincidan. Una vez coordinadas ambas versiones se **hidratará** la página, proceso mediante el cual la app se vuelve interactiva.
 
 ## Estrategias de renderizado en Next.js
+
+Next.js pone a nuestra disposición tres estrategias de renderizado:
+
+1. Static
+1. Dynamic
+1. Streaming
+
+### Static Rendering (default)
+
+El renderizado por defecto es estático. Esto significa que, durante el build time (es decir, cuando lancemos `npm run build` o sus análogos con otros gestores de paquetes) nuestro servidor renderizará todos nuestros componentes de React y generará archivos estáticos HTML.
+
+Algunos datos son dinámicos. Por ejemplo, en nuestro proyecto vamos a generar un sistema de ticketing, y los tickets van a variar con el tiempo. ¿Significa esto que tengo que lanzar `npm run build` para actualizar mi aplicación con los últimos tickets?
+
+No. Next.js incluye un sistema de revalidación (**data revalidation**) que nos permite eliminar la información desfasada y actualizarla cada cierto tiempo o cada vez que el usuario visita la página. Entraremos en más detalle con ejemplos en nuestra app.
+
+#### Ventajas del static rendering
+
+- Nuestra aplicación se crea en build time, por lo que la carga de trabajo del servidor (y sus tiempos de respuesta) son inferiores
+- Si no necesitamos una API, podemos utilizar un servidor estático, que suele ser más económico que un server que soporte Node.js
+
+#### Desventajas del static rendering
+
+- No tendremos acceso a ciertas funcionalidades dinámicas. Por ejemplo, nuestras páginas no pueden reaccionar a las cookies de la petición, ya que servimos el mismo archivo estático en todos los casos
+
+### Dynamic Rendering
+
+En ocasiones no podemos pre-renderizar un archivo estático porque cada usuario debe recibir una versión diferente de la página o aplicación. Por ejemplo, si utilizamos un sistema de roles es posible que el administrador deba disponer de más funcionalidades que el usuario básico. O cuando buscamos en un e-commerce como Amazon donde se incluyen filtros y preferencias en la URL, estamos visitando cada vez una dirección diferente, por lo que no podremos pre-generar todas las opciones disponibles.
+
+En los casos en que optemos por utilizar rutas dinámicas, Next.js renderizará dinámicamente la ruta cada vez que esta sea visitada. Esta opción, normalmente, se tomará por Next.js automáticamente para optimizar nuestro código, pero es importante que sepamos que no podemos depender del renderizado estático cuando:
+
+1. No estemos guardando información en caché, lo que requiere que se vuelva a crear la página antes de cada visita
+1. Utilizamos información de las cabeceras o cookies de la petición para configurar nuestra página
+1. Utilizamos los query params para personalizar la página
+
+#### Ventajas del dynamic rendering
+
+- Podemos acceder a información relevante en las cabeceras o cookies de las peticiones
+
+#### Desventajas del dynamic rendering
+
+- No disponemos de caché, por lo que generar cada página será más costoso que si fuera estática
+
+### Streaming
+
+Siendo un concepto más avanzado, lo trataremos en detalle en el curso "Profundizando en Next.js". Sin embargo, quiero hacer una introducción para que conozcas las tres estrategias de renderizado de Next.js.
+
+El streaming nos permite renderizar progresivamente nuestra UI desde el servidor.No es necesario que hagamos ninguna configuración compleja, ya que disponemos de la convención `loading.tsx` y del `<Suspense />` de React para indicar a Next.js qué queremos que se visualice en la página mientras nos llegan todos los fragmentos de la UI.
+
+## ¿Cuándo quiero utilizar CSR y cuándo SSR?
+
+Optar entre CSR y SSR dependerá de cada funcionalidad que se quiera incorporar a cada proyecto. Cualquier proyecto de Next.js combina ambas estrategias.
+
+Como guías generales:
+
+### Quieres utilizar SSR cuando...
+
+- Tienes que obtener datos (fetch). Optimizarás tiempos de carga y podrás cachear respuestas
+- Tienes que proteger información. Los tokens y claves API se quedarán en el servidor
+- Quieres agilizar la carga de la página. Podrás reducir la cantidad de JS que debe enviarse al cliente y ejecutarse en este
+
+Si puedes optar entre SSR y CSR, lo más frecuente es que debas utilizar SSR. Normalmente utilizamos CSR cuando SSR nos limita (por ejemplo, necesitamos escuchar un click del usuario).
+
+### Quieres utilizar CSR cuando...
+
+- Necesitas interacción del usuario. Solo en el cliente se pueden lanzar eventos como un click o el cambio de un input.
+- Necesitas utilizar hooks que dependan del ciclo de vida del componente. useState, useEffect y otros hooks se lanzan en momentos determinados del ciclo de vida del componente, por lo que dependen del DOM y por tanto solo pueden lanzarse en el cliente. Esto incluye los **custom hook** que dependan de otros hooks basados en el ciclo de vida del componente
+- Necesitas utilizar APIs del navegador. Los componentes SSR no pueden acceder a estas APIs.
+- Necesitas utilizar **class components**. Cosa que solo debería ocurrir en proyectos _legacy_.
