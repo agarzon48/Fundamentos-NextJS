@@ -51,3 +51,9 @@ Next.js se basa en React.js, de modo que para sacarle el máximo partido deberí
 1. React.js
 
 Lo ideal es que también controles un poco de **Node.js**, ya que eso te permitirá exprimir la API y las Server Actions.
+
+## Próximos pasos
+
+- Revisión de la (Documentación Oficial)[https://nextjs.org/docs]
+- Creación de un proyecto: `npx create-next-app@latest`
+- Revisión de la estructura del proyecto
