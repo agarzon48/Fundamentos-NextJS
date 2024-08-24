@@ -18,10 +18,10 @@ export default function Page({ params }: { params: { name: string } }) {
 
 /*
     If we navigate to app/users/Raspas/page.tsx, this page will show the text
-    'This user us called Raspas'
+    'This user is called Raspas'
 
     If we navigate to app/users/Zari/page.tsx, this page will show the text
-    'This user us called Zari'
+    'This user is called Zari'
 
     -- Both of them are my cats :)
 */

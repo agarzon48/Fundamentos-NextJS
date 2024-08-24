@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Inter } from "next/font/google";
+import { NextUIProvider } from "@nextui-org/react";
+import { Navbar, Footer } from "@/UI";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -18,31 +19,22 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <nav className="flex gap-2 justify-center items-center py-4 font-bold">
-          <ul className="flex gap-2 justify-center items-center">
-            <li>
-              <Link className="p-2 hover:text-purple-300" href="/">
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link className="p-2 hover:text-purple-300" href="/pricing">
-                Pricing
-              </Link>
-            </li>
-            <li>
-              <Link className="p-2 hover:text-purple-300" href="/contact-sales">
-                Contact Sales
-              </Link>
-            </li>
-            <li>
-              <Link className="p-2 hover:text-purple-300" href="/dashboard">
-                PRIVATE
-              </Link>
-            </li>
-          </ul>
-        </nav>
-        {children}
+        <NextUIProvider>
+          <Navbar
+            links={[
+              {
+                text: "Precios",
+                href: "/pricing",
+              },
+              {
+                text: "Contratar",
+                href: "/contact-sales",
+              },
+            ]}
+          />
+          <main className="min-h-screen text-balance">{children}</main>
+        </NextUIProvider>
+        <Footer />
       </body>
     </html>
   );
