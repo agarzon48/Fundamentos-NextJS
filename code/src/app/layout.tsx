@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
@@ -16,7 +17,33 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <nav className="flex gap-2 justify-center items-center py-4 font-bold">
+          <ul className="flex gap-2 justify-center items-center">
+            <li>
+              <Link className="p-2 hover:text-purple-300" href="/">
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link className="p-2 hover:text-purple-300" href="/pricing">
+                Pricing
+              </Link>
+            </li>
+            <li>
+              <Link className="p-2 hover:text-purple-300" href="/contact-sales">
+                Contact Sales
+              </Link>
+            </li>
+            <li>
+              <Link className="p-2 hover:text-purple-300" href="/dashboard">
+                PRIVATE
+              </Link>
+            </li>
+          </ul>
+        </nav>
+        {children}
+      </body>
     </html>
   );
 }
