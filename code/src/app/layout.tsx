@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { NextUIProvider } from "@nextui-org/react";
 import { Navbar, Footer } from "@/UI";
+import { WebVitals } from "@/components/WebVitals";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -23,11 +24,11 @@ export default function RootLayout({
           <Navbar
             links={[
               {
-                text: "Precios",
+                text: "pricing",
                 href: "/pricing",
               },
               {
-                text: "Contratar",
+                text: "sales",
                 href: "/contact-sales",
               },
             ]}
@@ -35,6 +36,7 @@ export default function RootLayout({
           <main className="min-h-screen text-balance">{children}</main>
         </NextUIProvider>
         <Footer />
+        <WebVitals />
       </body>
     </html>
   );

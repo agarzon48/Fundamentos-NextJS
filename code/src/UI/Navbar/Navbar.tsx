@@ -11,10 +11,13 @@ import { Button } from "@nextui-org/react";
 import type { NavbarProps } from "./Navbar.types";
 import { useLoginStore } from "@/stores/login";
 import { useRouter } from "next/navigation";
+import { useClientTranslations } from "@/translations/translations";
+import { Translations } from "@/translations/translations.types";
 
-export const Navbar: React.FC<NavbarProps> = ({ links }) => {
+export const Navbar: React.FC<NavbarProps> = ({ links, lang }) => {
   const { isLoggedIn, logout } = useLoginStore();
   const router = useRouter();
+  const translations = useClientTranslations(lang);
 
   const handleLogout = () => {
     logout();
@@ -32,7 +35,7 @@ export const Navbar: React.FC<NavbarProps> = ({ links }) => {
         {links.map(({ text, href }) => (
           <NavbarItem key={href}>
             <Link color="foreground" href={href}>
-              {text}
+              {translations?.global?.[text as keyof Translations["global"]]}
             </Link>
           </NavbarItem>
         ))}
@@ -41,11 +44,11 @@ export const Navbar: React.FC<NavbarProps> = ({ links }) => {
         <NavbarItem>
           {isLoggedIn ? (
             <Button color="danger" onClick={handleLogout} variant="flat">
-              Logout
+              {translations?.global?.logout}
             </Button>
           ) : (
             <Button as={Link} color="primary" href="/login" variant="flat">
-              Sign Up
+              {translations?.global?.login}
             </Button>
           )}
         </NavbarItem>

@@ -6,6 +6,7 @@ import { useLoginStore } from "@/stores/login";
 
 import { Input } from "@nextui-org/input";
 import { Button } from "@nextui-org/react";
+import { useClientTranslations } from "@/translations/translations";
 
 export function LoginForm() {
   const [form, setForm] = useState({
@@ -18,6 +19,7 @@ export function LoginForm() {
   });
   const { login, isLoggedIn } = useLoginStore();
   const router = useRouter();
+  const t = useClientTranslations();
 
   const validatePassword = (value: string) => value.length > 0;
 
@@ -37,8 +39,8 @@ export function LoginForm() {
     const emailIsInvalid = !validateEmail(form.email);
 
     setErrors({
-      password: passwordIsInvalid ? "La contraseña es obligatoria" : "",
-      email: emailIsInvalid ? "El email es obligatorio" : "",
+      password: passwordIsInvalid ? t.login.form.password_error_message : "",
+      email: emailIsInvalid ? t.login.form.email_error_message : "",
     });
 
     if (passwordIsInvalid || emailIsInvalid) {
@@ -59,10 +61,10 @@ export function LoginForm() {
         onSubmit={handleSubmit}
         className="w-96 border border-white rounded-md shadow-md shadow-white py-12 px-4 gap-4 flex flex-col text-center"
       >
-        <h1 className="text-2xl font-bold">Bienvenid@ de nuevo!</h1>
+        <h1 className="text-2xl font-bold">{t.login.title}</h1>
         <Input
           type="email"
-          label="Email"
+          label={t.login.form.email}
           isRequired
           name="email"
           value={form.email}
@@ -72,7 +74,7 @@ export function LoginForm() {
         />
         <Input
           type="password"
-          label="Contraseña"
+          label={t.login.form.password}
           isRequired
           name="password"
           value={form.password}
@@ -86,7 +88,7 @@ export function LoginForm() {
           variant="solid"
           type="submit"
         >
-          Enviar
+          {t.login.form.login}
         </Button>
       </form>
     </div>

@@ -2,21 +2,24 @@ import Link from "next/link";
 
 import { Content, Hero, PricingTables } from "@/UI";
 import { Button } from "@nextui-org/react";
+import { AvailableLocales, getTranslations } from "@/translations/translations";
 
-export default function PricingPage() {
+export default async function PricingPage({
+  params: { lang },
+}: {
+  params: { lang: AvailableLocales };
+}) {
+  const translations = await getTranslations(lang);
   return (
     <div>
       <Hero
-        title="Precios"
+        title={translations.pricing.header.title}
         cta={
           <>
             <h2 className="font-bold text-4xl mb-4 mt-6">
-              Nos adaptamos a las necesidades de tu proyecto
+              {translations.pricing.header.subtitle}
             </h2>
-            <p>
-              Si no disponemos de un plan adecuado para ti, no dudes en ponerte
-              en contacto con nosotros.
-            </p>
+            <p>{translations.pricing.header.text}</p>
           </>
         }
         actions={[
@@ -28,21 +31,21 @@ export default function PricingPage() {
             key="first"
             size="lg"
           >
-            Contratar
+            {translations.pricing.header.button}
           </Button>,
         ]}
       />
       <PricingTables
         plans={[
           {
-            title: "Básico",
-            price: "$9.99",
+            title: translations.pricing.pricing_boxes.basic.title,
+            price: translations.pricing.pricing_boxes.basic.price,
             features: [
-              "Soporte por email",
-              "Hasta 100 tickets al mes",
-              "1 usuario",
+              translations.pricing.pricing_boxes.basic.features[0],
+              translations.pricing.pricing_boxes.basic.features[1],
+              translations.pricing.pricing_boxes.basic.features[2],
             ],
-            description: "Para pequeños proyectos y startups emergentes",
+            description: translations.pricing.pricing_boxes.basic.description,
             action: (
               <Button
                 as={Link}

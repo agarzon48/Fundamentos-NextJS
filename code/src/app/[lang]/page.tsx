@@ -2,21 +2,25 @@ import Link from "next/link";
 
 import { Content, Hero, SocialProof } from "@/UI";
 import { Button } from "@nextui-org/react";
+import { getTranslations } from "@/translations/translations";
+import { AvailableLocales } from "@/translations/translations";
 
-export default function Home() {
+export default async function Home({
+  params: { lang },
+}: {
+  params: { lang: AvailableLocales };
+}) {
+  const translations = await getTranslations(lang);
   return (
     <div>
       <Hero
-        title="MCTS"
+        title={translations.home.header.title}
         cta={
           <>
             <h2 className="font-bold text-4xl mb-4 mt-6">
-              El sistema de ticketing de las startups emergentes
+              {translations.home.header.subtitle}
             </h2>
-            <p>
-              Increíblemente versátil, fácil de usar y con una IA integrada que
-              te sorprenderá.
-            </p>
+            <p>{translations.home.header.text}</p>
           </>
         }
         actions={[
@@ -28,7 +32,7 @@ export default function Home() {
             key="first"
             size="lg"
           >
-            Contratar
+            {translations.home.header.button}
           </Button>,
           <Button
             as={Link}
@@ -38,7 +42,7 @@ export default function Home() {
             key="second"
             size="lg"
           >
-            Saber más
+            {translations.home.header.secondary_button}
           </Button>,
         ]}
       />

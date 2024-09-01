@@ -1,0 +1,143 @@
+{
+  "home": {
+    "header": {
+      "title": "MCTS",
+      "subtitle": "The emerging startups ticketing system.",
+      "text": "Incredibly easy to use. Focused on usability and simplicity. Designed for teams of all sizes.",
+      "button": "Buy now",
+      "secondary_button": "Learn more"
+    },
+    "first_content_section": {
+      "title": "A ticketing system that works for you",
+      "columns": [
+        {
+          "title": "Easy to use",
+          "text": "Our ticketing system is easy to use and allows you to focus on what you do best."
+        },
+        {
+          "title": "Customizable",
+          "text": "Our ticketing system is customizable and allows you to create a system that works for you."
+        }
+      ]
+    },
+    "testimonials": [
+      {
+        "name": "John Doe",
+        "text": "I love the ticketing system. It's so easy to use and has everything I need."
+      },
+      {
+        "name": "Jane Doe",
+        "text": "The ticketing system is amazing. It has helped me organize my work and stay on top of things."
+      },
+      {
+        "name": "Alice Doe",
+        "text": "I can't imagine working without the ticketing system. It has made my life so much easier."
+      },
+      {
+        "name": "Bob Doe",
+        "text": "The ticketing system is a game changer. It has helped me be more productive and efficient."
+      }
+    ],
+    "second_content_section": {
+      "title": "A ticketing system that grows with you",
+      "columns": [
+        {
+          "title": "Start small",
+          "text": "Our ticketing system allows you to start small and grow as you need."
+        },
+        {
+          "title": "Grow big",
+          "text": "Our ticketing system allows you to grow big and scale as you need."
+        }
+      ]
+    }
+  },
+  "pricing": {
+    "header": {
+      "title": "Pricing",
+      "subtitle": "Choose the plan that works best for you.",
+      "text": "If we don't have a plan that fits your needs, please contact us and we will create a custom plan for you.",
+      "button": "Contact sales"
+    },
+    "pricing_boxes": {
+      "title": "Choose your plan",
+      "basic": {
+        "title": "Basic",
+        "price": "$10",
+        "description": "This is a basic plan that allows you to do basic things.",
+        "features": ["Email support", "Up to 100 tickets per month", "1 user"]
+      },
+      "premium": {
+        "title": "Premium",
+        "price": "$20",
+        "description": "This is a premium plan that allows you to do premium things.",
+        "features": ["Email support", "Up to 500 tickets per month", "5 users"]
+      }
+    },
+    "content_section": {
+      "title": "A ticketing system that works for you",
+      "columns": [
+        {
+          "title": "Easy to use",
+          "text": "Our ticketing system is easy to use and allows you to focus on what you do best."
+        },
+        {
+          "title": "Customizable",
+          "text": "Our ticketing system is customizable and allows you to create a system that works for you."
+        }
+      ]
+    }
+  },
+  "sales": {
+    "title": "Contact sales",
+    "form": {
+      "name": "Name",
+      "name_placeholder": "John Doe",
+      "name_error_message": "Please enter your name.",
+      "email": "Email",
+      "email_placeholder": "Enter your email so that we can contact you",
+      "email_error_message": "Please enter a valid email address.",
+      "message": "Message",
+      "message_placeholder": "How can we help you?",
+      "privacy": "I agree to the terms and privacy policy.",
+      "privacy_error_message": "You must agree to the terms and privacy policy.",
+      "submit": "Submit"
+    }
+  },
+  "login": {
+    "title": "Welcome back!",
+    "form": {
+      "email": "Email",
+      "email_error_message": "Please enter a valid email address.",
+      "password": "Password",
+      "password_error_message": "Please enter your password.",
+      "login": "Login"
+    }
+  },
+  "dashboard": {
+    "title": "Dashboard"
+  },
+  "users": {
+    "title": "Users"
+  },
+  "tickets": {
+    "title": "Tickets",
+    "table": {
+      "name": "Name",
+      "email": "Email",
+      "body": "Body"
+    }
+  },
+  "global": {
+    "pricing": "Pricing",
+    "sales": "Sales",
+    "login": "Login",
+    "logout": "Logout",
+    "dashboard": "Dashboard",
+    "users": "Users",
+    "tickets": "Tickets"
+  },
+  "footer": {
+    "text": "My company"
+  }
+}

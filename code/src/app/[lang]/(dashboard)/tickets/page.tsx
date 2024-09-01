@@ -1,5 +1,5 @@
-import { TicketsTable } from "./components/TicketsTable";
 import { getTickets } from "../../services/tickets";
+import { TicketsTable } from "./components/TicketsTable";
 
 export default async function TicketsPage() {
   const tickets = await getTickets();

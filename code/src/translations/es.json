@@ -1,0 +1,151 @@
+{
+  "home": {
+    "header": {
+      "title": "MCTS",
+      "subtitle": "El sistema de tickets de las startups emergentes.",
+      "text": "Increíblemente fácil de usar. Enfocado en la usabilidad y simplicidad. Diseñado para equipos de todos los tamaños.",
+      "button": "Contratar",
+      "secondary_button": "Saber más"
+    },
+    "first_content_section": {
+      "title": "Un sistema de tickets que funciona para ti",
+      "columns": [
+        {
+          "title": "Fácil de usar",
+          "text": "Nuestro sistema de tickets es fácil de usar y te permite centrarte en lo que haces mejor."
+        },
+        {
+          "title": "Personalizable",
+          "text": "Nuestro sistema de tickets es personalizable y te permite crear un sistema que funcione para ti."
+        }
+      ]
+    },
+    "testimonials": [
+      {
+        "name": "John Doe",
+        "text": "Me encanta el sistema de tickets. Es tan fácil de usar y tiene todo lo que necesito."
+      },
+      {
+        "name": "Jane Doe",
+        "text": "El sistema de tickets es increíble. Me ha ayudado a organizar mi trabajo y mantenerme al día."
+      },
+      {
+        "name": "Alice Doe",
+        "text": "No puedo imaginar trabajar sin el sistema de tickets. Me ha hecho la vida mucho más fácil."
+      },
+      {
+        "name": "Bob Doe",
+        "text": "El sistema de tickets es un cambio de juego. Me ha ayudado a ser más productivo y eficiente."
+      }
+    ],
+    "second_content_section": {
+      "title": "Un sistema de tickets que crece contigo",
+      "columns": [
+        {
+          "title": "Empieza pequeño",
+          "text": "Nuestro sistema de tickets te permite empezar pequeño y crecer según necesites."
+        },
+        {
+          "title": "Crecer grande",
+          "text": "Nuestro sistema de tickets te permite crecer grande y escalar según necesites."
+        }
+      ]
+    }
+  },
+  "pricing": {
+    "header": {
+      "title": "Precios",
+      "subtitle": "Elige el plan que mejor se adapte a ti.",
+      "text": "Si no tenemos un plan que se ajuste a tus necesidades, por favor contáctanos y crearemos un plan personalizado para ti.",
+      "button": "Contactar ventas"
+    },
+    "pricing_boxes": {
+      "title": "Planes de precios",
+      "basic": {
+        "title": "Básico",
+        "price": "$10",
+        "description": "Este es un plan básico que te permite hacer cosas básicas.",
+        "features": [
+          "Soporte por correo electrónico",
+          "Hasta 100 tickets al mes",
+          "1 usuario"
+        ]
+      },
+      "premium": {
+        "title": "Premium",
+        "price": "$20",
+        "description": "Este es un plan premium que te permite hacer cosas premium.",
+        "features": [
+          "Soporte por correo electrónico",
+          "Hasta 500 tickets al mes",
+          "5 usuarios"
+        ]
+      }
+    },
+    "content_section": {
+      "title": "Un sistema de tickets que funciona para ti",
+      "columns": [
+        {
+          "title": "Fácil de usar",
+          "text": "Nuestro sistema de tickets es fácil de usar y te permite centrarte en lo que haces mejor."
+        },
+        {
+          "title": "Personalizable",
+          "text": "Nuestro sistema de tickets es personalizable y te permite crear un sistema que funcione para ti."
+        }
+      ]
+    }
+  },
+  "sales": {
+    "title": "Contactar ventas",
+    "form": {
+      "name": "Nombre",
+      "name_placeholder": "John Doe",
+      "name_error_message": "Por favor introduce tu nombre.",
+      "email": "Email",
+      "email_placeholder": "Introduce tu email para que podamos contactarte",
+      "email_error_message": "Por favor introduce un email válido.",
+      "message": "Mensaje",
+      "message_placeholder": "¿En qué podemos ayudarte?",
+      "privacy": "Acepto los términos y la política de privacidad.",
+      "privacy_error_message": "Por favor acepta los términos y la política de privacidad.",
+      "submit": "Enviar"
+    }
+  },
+  "login": {
+    "title": "¡Bienvenido de nuevo!",
+    "form": {
+      "email": "Email",
+      "email_error_message": "Por favor introduce un email válido.",
+      "password": "Password",
+      "password_error_message": "Por favor introduce tu contraseña.",
+      "login": "Login"
+    }
+  },
+  "dashboard": {
+    "title": "Dashboard"
+  },
+  "users": {
+    "title": "Usuarios"
+  },
+  "tickets": {
+    "title": "Tickets",
+    "table": {
+      "name": "Nombre",
+      "email": "Email",
+      "body": "Cuerpo"
+    }
+  },
+  "global": {
+    "pricing": "Precios",
+    "sales": "Ventas",
+    "login": "Login",
+    "logout": "Logout",
+    "dashboard": "Dashboard",
+    "users": "Usuarios",
+    "tickets": "Tickets"
+  },
+  "footer": {
+    "text": "MCTS"
+  }
+}

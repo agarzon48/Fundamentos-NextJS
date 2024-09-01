@@ -1,10 +1,11 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState } from "react";
 
 import { Input, Textarea } from "@nextui-org/input";
 import { Button } from "@nextui-org/react";
 import { Checkbox } from "@nextui-org/checkbox";
+import { useClientTranslations } from "@/translations/translations";
 
 export function ContactSalesForm() {
   const [form, setForm] = useState({
@@ -19,6 +20,7 @@ export function ContactSalesForm() {
     message: "",
     acceptTerms: "",
   });
+  const t = useClientTranslations();
 
   const validateName = (value: string) => value.length > 0;
 
@@ -48,12 +50,10 @@ export function ContactSalesForm() {
     const termsAreInvalid = !validateTerms(form.acceptTerms);
 
     setErrors({
-      name: nameIsInvalid ? "El nombre es obligatorio" : "",
-      email: emailIsInvalid ? "El email es obligatorio" : "",
+      name: nameIsInvalid ? t.sales.form.name_error_message : "",
+      email: emailIsInvalid ? t.sales.form.email_error_message : "",
       message: "",
-      acceptTerms: termsAreInvalid
-        ? "Debes aceptar las condiciones y política de privacidad"
-        : "",
+      acceptTerms: termsAreInvalid ? t.sales.form.privacy_error_message : "",
     });
 
     if (nameIsInvalid || emailIsInvalid || termsAreInvalid) {
@@ -69,11 +69,11 @@ export function ContactSalesForm() {
         onSubmit={handleSubmit}
         className="w-96 border border-white rounded-md shadow-md shadow-white py-12 px-4 gap-4 flex flex-col text-center"
       >
-        <h1 className="text-2xl font-bold">Contacta con ventas</h1>
+        <h1 className="text-2xl font-bold">{t.sales.title}</h1>
         <Input
           type="text"
-          label="Nombre"
-          placeholder="¿Cómo te llamas?"
+          label={t.sales.form.name}
+          placeholder={t.sales.form.name_placeholder}
           isRequired
           name="name"
           value={form.name}
@@ -83,8 +83,8 @@ export function ContactSalesForm() {
         />
         <Input
           type="email"
-          label="Email"
-          placeholder="Introduce tu email para que podamos contestarte"
+          label={t.sales.form.email}
+          placeholder={t.sales.form.email_placeholder}
           isRequired
           name="email"
           value={form.email}
@@ -93,8 +93,8 @@ export function ContactSalesForm() {
           isInvalid={Boolean(errors?.email)}
         />
         <Textarea
-          label="Mensaje"
-          placeholder="Introduce tu mensaje"
+          label={t.sales.form.message}
+          placeholder={t.sales.form.message_placeholder}
           isRequired
           name="message"
           value={form.message}
@@ -110,7 +110,7 @@ export function ContactSalesForm() {
           isInvalid={Boolean(errors.acceptTerms)}
           isRequired
         >
-          He leído y acepto las condiciones y política de privacidad
+          {t.sales.form.privacy}
         </Checkbox>
         <Button
           className="w-full"
@@ -118,7 +118,7 @@ export function ContactSalesForm() {
           variant="solid"
           type="submit"
         >
-          Enviar
+          {t.sales.form.submit}
         </Button>
       </form>
     </div>
