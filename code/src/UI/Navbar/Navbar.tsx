@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import {
   Navbar as NUINavbar,
@@ -7,8 +9,18 @@ import {
 } from "@nextui-org/navbar";
 import { Button } from "@nextui-org/react";
 import type { NavbarProps } from "./Navbar.types";
+import { useLoginStore } from "@/stores/login";
+import { useRouter } from "next/navigation";
 
 export const Navbar: React.FC<NavbarProps> = ({ links }) => {
+  const { isLoggedIn, logout } = useLoginStore();
+  const router = useRouter();
+
+  const handleLogout = () => {
+    logout();
+    router.push("/");
+  };
+
   return (
     <NUINavbar className="bg-black" shouldHideOnScroll isBordered>
       <NavbarBrand>
@@ -27,9 +39,15 @@ export const Navbar: React.FC<NavbarProps> = ({ links }) => {
       </NavbarContent>
       <NavbarContent justify="end">
         <NavbarItem>
-          <Button as={Link} color="primary" href="/login" variant="flat">
-            Sign Up
-          </Button>
+          {isLoggedIn ? (
+            <Button color="danger" onClick={handleLogout} variant="flat">
+              Logout
+            </Button>
+          ) : (
+            <Button as={Link} color="primary" href="/login" variant="flat">
+              Sign Up
+            </Button>
+          )}
         </NavbarItem>
       </NavbarContent>
     </NUINavbar>
